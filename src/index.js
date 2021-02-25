@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDom from 'react-dom'
+import { Fragment } from 'react'
+import './index.css'
+import Header from './Components/Header/header.js'
+import Footer from './Components/Footer/footer.js'
+import Search from './Components/Search/search.js'
+import ContactList from './Components/Contact-list/contact-list.js'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+class App extends React.Component {
+    render () {
+        return (
+            <Fragment>
+                <div className='container'>
+                    <Header />
+                    <Search />
+                    <ContactList />
+                    <Footer />
+                </div>
+            </Fragment>
+        )
+    }
+}
+
+
+ReactDom.render(<App></App>, document.getElementById('root'))
