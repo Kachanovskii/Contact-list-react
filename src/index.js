@@ -1,27 +1,44 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import { Fragment } from 'react'
-import './index.css'
-import Header from './Components/Header/header.js'
-import Footer from './Components/Footer/footer.js'
-import Search from './Components/Search/search.js'
-import ContactList from './Components/Contact-list/contact-list.js'
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
+import './index.css';
+
+// Components
+import Header from "./Components/Header/header";
+import Search from "./Components/Search/search";
+import ContactList from "./Components/ContactList/contactList";
+import Footer from "./Components/Footer/footer";
+import AddContact from "./Components/Add-contact/add-contact";
 
 
-class App extends React.Component {
-    render () {
-        return (
-            <Fragment>
-                <div className='container'>
-                    <Header />
-                    <Search />
-                    <ContactList />
-                    <Footer />
-                </div>
-            </Fragment>
-        )
-    }
+const App = () => {
+  return (
+      <Fragment>
+      <Header />
+        <Router>
+              <Switch>
+                  <Route path="/"
+                         exact
+                         render={() =>
+                             <Fragment>
+                                 <Search />
+                                 <ContactList />
+                             </Fragment>
+                         }
+                         />
+
+                  <Route path="/add-contact"
+                         exact
+                         render={() =>
+                             <AddContact />
+                         }
+                  />
+              </Switch>
+          </Router>
+        <Footer />
+      </Fragment>
+
+)
 }
 
-
-ReactDom.render(<App></App>, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById("root"));
