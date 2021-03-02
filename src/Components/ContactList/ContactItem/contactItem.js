@@ -1,21 +1,21 @@
 import React from "react";
 
-const ContactItem = () => {
+const ContactItem = ({ Avatar, Name, Role, Created, Status, Email }) => {
     return (
         <tr>
             <td>
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                <a href="#" class="user-link">Mila Kunis</a>
-                <span class="user-subhead">Admin</span>
+                <img src={Avatar} alt="" />
+                <a href="#" class="user-link">{Name}</a>
+                <span class="user-subhead">{Role}</span>
             </td>
             <td>
-                2013/08/08
+                {Created}
             </td>
             <td class="text-center">
-                <span class="label label-default">Inactive</span>
+                <span class="label label-default">{Status}</span>
             </td>
             <td>
-                <a href="#">mila@kunis.com</a>
+                <a href="#">{Email}</a>
             </td>
             <td>
                 <a href="#" class="table-link">

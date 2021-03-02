@@ -2,7 +2,13 @@ import React, { Fragment } from "react";
 
 import ContactItem from "./ContactItem/contactItem";
 
-const ContactList = () => {
+const ContactList = ({ List }) => {
+    const item = List.map(contact => {
+        return (
+            <ContactItem Avatar={contact.Avatar} Name={contact.Name} Created={contact.Created}
+                         Role={contact.Role} Status={contact.Status} Email={contact.Email} />
+        )
+    })
     return (
         <Fragment>
             <div class="container contact-list">
@@ -21,7 +27,7 @@ const ContactList = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <ContactItem />
+                                    {item}
                                     </tbody>
                                 </table>
                             </div>
